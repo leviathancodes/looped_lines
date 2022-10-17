@@ -7,6 +7,8 @@ void setup() {
 };
 
 void draw() {
+  float sinewave = sin(radians(frameCount));
+
   noStroke();
   // grain
   fill(#f1f1f1);
@@ -20,13 +22,12 @@ void draw() {
   
   // rect
   fill(#fffaf1);
-  rect(width - 25, 20, 5, height - 200);
-  rect(width - 50, 20, 2.5, height - 100);
-    
+  rect(width - 25, height/2, 5, height * sinewave * 0.5);
+  rect(width - 50, height/2, 2.5, height * sinewave * 0.33);
+  
   // lines
   for (int i = 0; i < 600; i += 10){
-    float wave = sin(radians(frameCount));
-    rect(0, i, i * wave, 5);
+    rect(0, i, i * sinewave, 5);
 
   }
   
